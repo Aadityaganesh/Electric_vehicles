@@ -1,8 +1,31 @@
-**Performing EDA on Electric Vehicle Data**
+# Performing EDA on Electric Vehicle Data
 
-Welcome to my project repository! This repository contains the code and analysis performed during my internship at Innomatics Research Lab. The project focuses on Exploratory Data Analysis (EDA) on Electric Vehicle (EV) data and includes advanced data visualizations using Plotly, along with a dynamic racing bar chart showcasing the growth of EV manufacturers over time.
+This repository contains the code and analysis performed during my internship at Innomatics Research Lab. The project focuses on Exploratory Data Analysis (EDA) on Electric Vehicle (EV) data and includes advanced data visualizations using Plotly, along with a dynamic racing bar chart showcasing the growth of EV manufacturers over time.
 
-**📁 Project Structure**:
+## Table of Contents
+- [Installation](#installation)
+- [📁 Project Structure](#📁-project-structure)
+- [Task 1: EDA & Multivariate Analysis](#task-1-eda--multivariate-analysis)
+- [Task 2: Visualizations using Plotly](#task-2-visualizations-using-plotly)
+- [Task 3: Racing Bar Chart](#task-3-racing-bar-chart)
+
+
+## Installation
+Open your terminal and then run this command to install jupyter lab
+        
+    pip install jupyter lab
+
+#### Clone this Repository 
+If the repository on github, Clone it to your local machine
+
+    git clone https://github.com/Aadityaganesh/Electric_vehicles  
+
+#### Launch jupyter lab
+Launch juypter lab in terminal by running the following command
+
+    jupyter lab
+
+## Project Structure:
 
 Here's the brief desription about the  Electric Vehicles dataset
 - **VIN:** The Vehicle Identification Number is a unique alphanumeric code assigned to each vehicle for identification purposes. This column represents the first 10 characters of the VIN.
@@ -24,8 +47,18 @@ Here's the brief desription about the  Electric Vehicles dataset
 - **2020 Census Tract**:The census tract associated with the vehicle's registered address, based on the 2020 Census data.
 
 
-**Task 1: EDA & Multivariate Analysis**
+## Task 1: EDA & Multivariate Analysis
 
+#### Necessary libraries 
+To work on this analysis you need to ensure install some python libraries
+
+    !pip install numpy
+    !pip install pandas
+    !pip install matplotlib
+    !pip install seaborn
+
+Make sure all libraries are installed and they are working properly while your are working on this analysis
+    
 Conducted an in-depth Exploratory Data Analysis (EDA) of the dataset, focusing on both univariate and multivariate relationships to uncover valuable insights.
 
 Here are some useful DataFrame functions for initial exploration:
@@ -34,6 +67,8 @@ Here are some useful DataFrame functions for initial exploration:
 
 - **df.shape:** Returns the dimensions of the DataFrame as a tuple (number of rows, number of columns).
 
+- **df.columns:** This is used to check the name of columns in a dataframe.
+
 - **df.head():** Displays the first five rows of the DataFrame for a quick preview of the data.
 
 - **df.duplicated():** Returns a boolean Series indicating whether each row is a duplicate.
@@ -41,6 +76,29 @@ Here are some useful DataFrame functions for initial exploration:
 - **df.isna().sum():** Calculates the total number of missing values in each column.
 
 **Handling Missing Values**
+
+#### Before Handling missing values
+
+The following table presents the sum count of missing values in each column:
+| Field                                                   | Count |
+|---------------------------------------------------------|-------|
+| VIN (1-10)                                             | 0     |
+| County                                                 | 0     |
+| City                                                   | 0     |
+| State                                                  | 0     |
+| Postal Code                                            | 0     |
+| Model Year                                             | 0     |
+| Make                                                   | 0     |
+| Model                                                  | 20    |
+| Electric Vehicle Type                                  | 0     |
+| Clean Alternative Fuel Vehicle (CAFV) Eligibility      | 0     |
+| Electric Range                                         | 0     |
+| Base MSRP                                              | 0     |
+| Legislative District                                   | 286   |
+| DOL Vehicle ID                                         | 0     |
+| Vehicle Location                                       | 24    |
+| Electric Utility                                       | 443   |
+| 2020 Census Tract                                      | 0     |
 
 In the electric vehicle dataset, we encountered several missing values across different columns. To ensure data integrity and avoid issues during analysis, we applied the following strategies for filling these missing values:
 
@@ -69,6 +127,30 @@ For the Electric Utility column, we used the mode (the most frequently occurring
         df['Electric Utility'] = df['Electric Utility'].fillna(df['Electric Utility'].mode()[0])
         
 By addressing missing values using these strategies, we ensured that our analysis could proceed without complications related to incomplete data.
+
+#### After handling missing values
+
+The following table presents the sum count of missing values in each column:
+| Field                                                   | Count |
+|---------------------------------------------------------|-------|
+| VIN (1-10)                                             | 0     |
+| County                                                 | 0     |
+| City                                                   | 0     |
+| State                                                  | 0     |
+| Postal Code                                            | 0     |
+| Model Year                                             | 0     |
+| Make                                                   | 0     |
+| Model                                                  | 0     |
+| Electric Vehicle Type                                   | 0     |
+| Clean Alternative Fuel Vehicle (CAFV) Eligibility      | 0     |
+| Electric Range                                         | 0     |
+| Base MSRP                                              | 0     |
+| Legislative District                                   | 0     |
+| DOL Vehicle ID                                         | 0     |
+| Vehicle Location                                       | 0     |
+| Electric Utility                                       | 0     |
+| 2020 Census Tract                                      | 0     |
+
 
 **Univariate Analysis**
   
@@ -143,7 +225,7 @@ By addressing missing values using these strategies, we ensured that our analysi
             plt.title('Correlation Heatmap')
             plt.show()
 
-**Task 2: Visualizations using Plotly**
+## Task 2: Visualizations using Plotly
 
 * Created interactive and visually engaging plots using Plotly to present the data in a meaningful and interpretable way.
   Note for Visualizing Electric Vehicle Count by State
@@ -177,7 +259,7 @@ By addressing missing values using these strategies, we ensured that our analysi
 
 - This code will generate an interactive choropleth map displaying the distribution of electric vehicles across different states in the USA.
 
-**Task 3: Racing Bar Chart**
+## Task 3: Racing Bar Chart
 
 * Developed a dynamic racing bar chart to visualize the growth of Electric Vehicle manufacturers over time.
 
@@ -216,8 +298,10 @@ The following code processes the electric vehicle dataset and creates a horizont
             filter_column_colors=True,  
             period_length=1000
         )
+![Screenshot 2024-10-12 191409](https://github.com/user-attachments/assets/f32a0d42-ee61-4fde-84af-e5f963278eaf)
 
 # Display the .gif in the Jupyter notebook
     Image(filename='EV_make_racing_bar_plot.gif')
 Visualization
 The resulting GIF, EV_make_racing_bar_plot.gif, showcases the number of electric vehicles by make for each model year, providing insights into the growth and popularity of various electric vehicle manufacturers.
+![EV_make_racing_bar_plot](https://github.com/user-attachments/assets/eccc6b13-6264-4359-ab9b-70a4a108279c)
