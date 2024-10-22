@@ -50,7 +50,7 @@ Here's the brief desription about the  Electric Vehicles dataset
 ## Task 1: EDA & Multivariate Analysis
 
 #### Necessary libraries 
-To work on this analysis you need to ensure install some python libraries
+To work on this analysis you need to ensure that, you have installed these python libraries
 
     !pip install numpy
     !pip install pandas
