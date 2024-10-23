@@ -106,7 +106,7 @@ In the electric vehicle dataset, we encountered several missing values across di
 
 Missing values in the Model column were replaced with the string 'Unknown'. This approach allows us to maintain the integrity of the dataset while clearly indicating that the model information was not available.
 
-        df['Model'] = df['Model'].fillna('Unknown')
+    df['Model'] = df['Model'].fillna('Unknown')
         
 - **Legislative District:**
 
@@ -166,31 +166,31 @@ The following table presents the sum count of missing values in each column:
 
     - A horizontal boxplot was generated to analyze the distribution of legislative districts. This visualization helps identify any outliers or variations in data across districts.
     
-        plt.figure(figsize=(10, 6))
-        sns.boxplot(data=df['Legislative District'], orient='h')
-        plt.title('Boxplot of Legislative District')
-        plt.xlabel('Legislative District')
-        plt.show()
+            plt.figure(figsize=(10, 6))
+            sns.boxplot(data=df['Legislative District'], orient='h')
+            plt.title('Boxplot of Legislative District')
+            plt.xlabel('Legislative District')
+            plt.show()
   
 - **Electric Range Distribution:**
 
     - A histogram with a kernel density estimate (KDE) was plotted to examine the distribution of the electric range of vehicles. This visualization highlights the range and frequency of electric ranges within the dataset.
     
-        plt.figure(figsize=(10, 6))
-        sns.histplot(df['Electric Range'], bins=20, kde=True)
-        plt.title('Distribution of Electric Range')
-        plt.show()
+            plt.figure(figsize=(10, 6))
+            sns.histplot(df['Electric Range'], bins=20, kde=True)
+            plt.title('Distribution of Electric Range')
+            plt.show()
   
 - **Make Count Distribution:**
 
     - A count plot was created to visualize the frequency of various makes of electric vehicles. This chart provides insight into which manufacturers dominate the market in the dataset.
     
-        plt.figure(figsize=(15, 10))
-        sns.countplot(data=df, x='Make')
-        plt.xticks(rotation=90)
-        plt.xlabel('Make')
-        plt.ylabel('Count')
-        plt.show()
+            plt.figure(figsize=(15, 10))
+            sns.countplot(data=df, x='Make')
+            plt.xticks(rotation=90)
+            plt.xlabel('Make')
+            plt.ylabel('Count')
+            plt.show()
   
 **Bivariate Analysis**
 
@@ -198,32 +198,32 @@ The following table presents the sum count of missing values in each column:
 
     - A scatter plot was generated to explore the relationship between electric range and base MSRP, with points colored by electric vehicle type. This visualization helps identify potential correlations and patterns between these two numerical variables.
       
-        plt.figure(figsize=(10, 6))
-        sns.scatterplot(x='Electric Range', y='Base MSRP', hue='Electric Vehicle Type', data=df)
-        plt.title('Electric Range vs Base MSRP')
-        plt.show()
+            plt.figure(figsize=(10, 6))
+            sns.scatterplot(x='Electric Range', y='Base MSRP', hue='Electric Vehicle Type', data=df)
+            plt.title('Electric Range vs Base MSRP')
+            plt.show()
   
 - **Model Year vs. Base MSRP:**
 
     - A boxplot was created to analyze the relationship between model year and base MSRP. This visualization allows for comparison of the price distribution across different model years.
     
-        plt.figure(figsize=(10, 6))
-        sns.boxplot(x='Model Year', y='Base MSRP', data=df)
-        plt.title('Model Year vs Base MSRP')
-        plt.xticks(rotation=45)
-        plt.show()
+            plt.figure(figsize=(10, 6))
+            sns.boxplot(x='Model Year', y='Base MSRP', data=df)
+            plt.title('Model Year vs Base MSRP')
+            plt.xticks(rotation=45)
+            plt.show()
 
 **Multivariate Analysis**
 
 - **Correlation Heatmap:**
     - A heatmap was generated to visualize the correlation matrix of numerical features. This analysis highlights the strength and direction of relationships between different numerical variables, aiding in understanding how these features interact with one another.
-
-        numeric_df = df.select_dtypes(include=['float64', 'int64'])
-        corr_matrix = numeric_df.corr()
-        plt.figure(figsize=(10, 6))
-        sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', linewidths=0.5, vmin = -1, vmax =1 )
-        plt.title('Correlation Heatmap')
-        plt.show()
+      
+            numeric_df = df.select_dtypes(include=['float64', 'int64'])
+            corr_matrix = numeric_df.corr()
+            plt.figure(figsize=(10, 6))
+            sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', linewidths=0.5, vmin = -1, vmax =1 )
+            plt.title('Correlation Heatmap')
+            plt.show()
 
 ## Visualizations using Plotly
 
